@@ -39,19 +39,21 @@ class SearchesController < ApplicationController
 
   end
 
-  def create_photos(selected_landmarks)
-    # def self.get_images_for_location(landmark_names)
-      photos = []
+  def create_photos
+    # @search = Search.find(params[:id])
+    # byebug
+    # params[:photos].each do |p|
+    #   Photo.create!(p[:photo_id])
+    # end
+    # # def self.get_images_for_location(landmark_names)
+    photos = []
 
       @selected_landmarks.each do |landmark|
         search_results = flickr.photos.search(tags: selected_landmarks, license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
 
-        photos += search_results.map { |result| Photo.new(result) }
+        photos += search_results.map { |result| Photo.create!(result) }
       end
       photos
-
-
-
   end
 
   def show
