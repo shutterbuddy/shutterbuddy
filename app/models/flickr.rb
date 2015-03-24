@@ -1,10 +1,11 @@
 class Flickr
-  def initialize(search)
-    @results = get_results(search)
+
+  def initialize(result)
+    @flickr_result = result
   end
 
-  def get_results(search)
-
+  def url
+    FlickRaw.url(@flickr_result)
   end
-
+  
 end

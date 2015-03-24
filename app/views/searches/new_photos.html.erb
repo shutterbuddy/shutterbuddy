@@ -4,7 +4,7 @@
 <%= form_tag create_photos_search_path do %>
   <% @images.each do |photo| %>
     <div>
-      <%= check_box_tag "photos[]", photo %>
+      <%= check_box_tag "photos[]", photo.url %>
       <%= image_tag photo.url  %>
     </div>
   <% end %>
