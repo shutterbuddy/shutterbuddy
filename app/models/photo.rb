@@ -1,9 +1,7 @@
 class Photo < ActiveRecord::Base
   belongs_to :landmark
 
-  FlickRaw.api_key=ENV['FLICKR_KEY']
-  FlickRaw.shared_secret=ENV['FLICKR_SECRET']
-
+  
   def initialize(result)
     @flickr_result = result
   end
