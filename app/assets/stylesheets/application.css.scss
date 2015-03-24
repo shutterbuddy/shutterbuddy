@@ -16,11 +16,36 @@
 
 
   h3 {
-    padding-top: 60px;
+    padding-top: 40px;
     font-family: futura;
   }
 
- body {
-    padding-top: 60px;
-    font-family: futura;
+  .map { position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      margin: 0;
   }
+
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+.info-box {
+  box-sizing: border-box;
+  background: white;
+  padding: 1em;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  overflow: auto;
+  margin: 0;
+
+
+}
