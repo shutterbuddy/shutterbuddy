@@ -47,16 +47,4 @@ class Search < ActiveRecord::Base
   end
 
 
-  # def refine_selection(search)
-  #   selections = []
-  #   @landmark_names.each do |c|
-  #     if c.name.checkbox == true
-  #       selections << name
-  #     else
-  #       return selections
-  #     end
-  #   end
-  # end
-
-
 end

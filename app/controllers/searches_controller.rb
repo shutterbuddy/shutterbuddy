@@ -62,30 +62,6 @@ class SearchesController < ApplicationController
 
 
 
-    # @landmark_names = @search.get_landmark_names
-    # @selected_landmarks = params[:landmarks]
-    #
-
-    # @photos = params[:photos]
-  #   @results = @landmark_names.refine_selection
-    # @selected_landmarks = selected_landmarks
-
-
-  # def create_album
-  #   @album = Album.create(params[:selected_landmarks])
-  #   # @album = Album.new(album_params)
-  #   respond_to do |format|
-  #     if @album.save
-  #       format.html { redirect_to @album, notice: 'Album was successfully created.' }
-  #       format.json { render :show, status: :created, location: @album }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @album.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-
   private
   def set_search
     @search = Search.find(params[:id])
