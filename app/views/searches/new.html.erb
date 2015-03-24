@@ -1,7 +1,7 @@
 <h1>Search Shutterbuddy!</h1>
 <p> Enter the city you visited in the search box:</p>
 
-<%= form_tag nil, method: :get do %>
+<%= form_tag searches_path, method: :post do %>
   <%= text_field_tag :city, params[:city], id: "search-bar", class: "controls", placeholder: "Search Box" %>
 <% end %>
 

@@ -5,25 +5,35 @@ class SearchesController < ApplicationController
   end
 
   def new
-    @search = Search.create!(name: params[:city])
-      if @search.save
-        redirect_to new_landmarks_search_path(@search)
-      else
-        render :new, notice: "invalid search terms, please enter a city name"
+    @search = Search.new
+  end
+
+  def create
+    @search = Search.new(name: params[:city])
+    if @search.save
+      redirect_to new_landmarks_search_path(@search)
+    else
+      render :new, notice: "invalid search terms, please enter a city name"
     end
   end
 
   def new_landmarks
-
     @search = Search.find(params[:id])
     @landmark_names = @search.get_landmark_names
   end
 
   def create_landmarks
-
+    @search = Search.find(params[:id])
+    params[:landmarks].each do |l|
+      Landmark.create!(search_id: params[:id],
+                      name: l,
+      )
+    end
+    redirect_to new_photos_search_path(@search)
   end
 
   def new_photos
+    @selected_landmarks = Photo.get_images_for_location(@selected_landmarks)
 
   end
 
@@ -32,22 +42,21 @@ class SearchesController < ApplicationController
   end
 
   def show
-    @selected_landmarks = Photo.get_images_for_location(@selected_landmarks)
+    # @selected_landmarks = Photo.get_images_for_location(@selected_landmarks)
   end
 
 
-  def create
-    @search = Search.new(name: params[:city])
 
-    @landmark_names = @search.get_landmark_names
-    @selected_landmarks = params[:landmarks]
 
+
+    # @landmark_names = @search.get_landmark_names
+    # @selected_landmarks = params[:landmarks]
+    #
 
     # @photos = params[:photos]
   #   @results = @landmark_names.refine_selection
     # @selected_landmarks = selected_landmarks
 
-  end
 
   # def create_album
   #   @album = Album.create(params[:selected_landmarks])

@@ -1,8 +1,18 @@
+
+
+
+<iframe
+width="700"
+height="600"
+frameborder="0" style="border:0"
+src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>
+</iframe>
+
 <h1> New Landmarks </h1>
 
 <% if @landmark_names.empty? == false %>
   <p> Check the places you visited on your trip! </p>
-  <%= form_tag do %>
+  <%= form_tag create_landmarks_search_path do %>
     <% @landmark_names.each do |n| %>
       <div>
         <%= check_box_tag "landmarks[]", n %>
