@@ -32,6 +32,22 @@ class Search < ActiveRecord::Base
     landmark_names
   end
 
+  def get_images
+    photos = []
+    landmarks_list = []
+    self.landmarks.each do |l|
+      landmarks_list << l.name
+    end
+
+    landmarks_list.each do |landmark|
+      search_results = flickr.photos.search(tags: landmark, license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
+
+      photos += search_results.map { |result| Photo.new(result) }
+    end
+    photos
+  end
+
+
   # def refine_selection(search)
   #   selections = []
   #   @landmark_names.each do |c|

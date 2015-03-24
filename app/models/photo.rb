@@ -12,10 +12,6 @@ class Photo < ActiveRecord::Base
     FlickRaw.url(@flickr_result)
   end
 
-  # def owner
-  #
-  # end
-
   # def self.get_random_image
   #
   #   # list   = flickr.photos.getRecent
@@ -30,14 +26,14 @@ class Photo < ActiveRecord::Base
   # end
   #
   def self.get_images_for_location(landmark_names)
-    photos = []
-
-    @landmark_names.each do |landmark|
-      search_results = flickr.photos.search(tags: landmark_names, license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
-
-      photos += search_results.map { |result| Photo.new(result) }
-    end
-    photos
+  #   photos = []
+  #
+  #   landmark_names.each do |landmark|
+  #     search_results = flickr.photos.search(tags: landmark_names, license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
+  #
+  #     photos += search_results.map { |result| Photo.new(result) }
+  #   end
+  #   photos
   end
 
 end
