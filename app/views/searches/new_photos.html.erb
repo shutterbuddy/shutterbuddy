@@ -1,0 +1,14 @@
+<h1>New Photos</h1>
+
+<%= form_tag(@search) do %>
+
+  <% @selected_landmarks.each do |photo| %>
+    <div>
+      <%= check_box_tag "photos[]", photo %>
+      <%= image_tag photo.url  %>
+    </div>
+  <% end %>
+<p>  <%= submit_tag "Submit" %> </p>
+
+<h3><%= link_to "Start Search Again", searches_path %></h3>
+<% end %>

@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
-  
 
-  resources :searches
-  resources :albums
+
+  resources :searches do
+    member do
+      get "new_landmarks"
+      get "new_photos"
+      post "create_landmarks"
+      post "create_photos"
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'searches#index'
+  root 'searches#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

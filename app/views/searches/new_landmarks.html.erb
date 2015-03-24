@@ -1,0 +1,17 @@
+<h1> New Landmarks </h1>
+
+<% if @landmark_names.empty? == false %>
+  <p> Check the places you visited on your trip! </p>
+  <%= form_tag do %>
+    <% @landmark_names.each do |n| %>
+      <div>
+        <%= check_box_tag "landmarks[]", n %>
+        <%= label_tag n %>
+      </div>
+    <% end %>
+  <p>  <%= submit_tag "Submit" %> </p>
+  <% end %>
+
+<h3><%= link_to "Start Search Again", searches_path %></h3>
+
+<% end %>

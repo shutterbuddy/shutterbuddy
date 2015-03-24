@@ -1,17 +1,2 @@
 <h1>Searches#show</h1>
 <p>Find me in app/views/searches/show.html.erb</p>
-
-
-
-<%= form_tag(@search) do %>
-<% byebug %>
-  <% @selected_landmarks.each do |photo| %>
-    <div>
-      <%= check_box_tag "photos[]", photo %>
-      <%= image_tag photo.url  %>
-    </div>
-  <% end %>
-<p>  <%= submit_tag "Submit" %> </p>
-
-<h3><%= link_to "Start Search Again", searches_path %></h3>
-<% end %>

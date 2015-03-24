@@ -1,2 +1,15 @@
+<h1>Search Shutterbuddy!</h1>
+<p> Enter the city you visited in the search box:</p>
 
-<h1>Select Your Photos</h1>
+<%= form_tag nil, method: :get do %>
+  <%= text_field_tag :city, params[:city], id: "search-bar", class: "controls", placeholder: "Search Box" %>
+<% end %>
+
+
+
+<iframe
+width="700"
+height="600"
+frameborder="0" style="border:0"
+src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>
+</iframe>
