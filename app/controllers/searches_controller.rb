@@ -1,19 +1,21 @@
 class SearchesController < ApplicationController
-  # before_action :set_search, only:[:show, :destroy, :update]
+  before_action :set_search, only:[:show, :destroy, :update]
 
   def index
   end
 
   def new
-    @search = Search.new(name: params[:city])
-    if @search.save
-      redirect_to @search
-    else
-      "invalid search terms, please enter a city name"
+    @search = Search.create!(name: params[:city])
+      if @search.save
+        redirect_to new_landmarks_search_path(@search)
+      else
+        render :new, notice: "invalid search terms, please enter a city name"
     end
   end
 
   def new_landmarks
+
+    @search = Search.find(params[:id])
     @landmark_names = @search.get_landmark_names
   end
 
@@ -35,11 +37,14 @@ class SearchesController < ApplicationController
 
 
   def create
-    @search = Search.create!(name: params[:city])
+    @search = Search.new(name: params[:city])
+
     @landmark_names = @search.get_landmark_names
-    @photos = params[:photos]
-  #   @results = @landmark_names.refine_selection
     @selected_landmarks = params[:landmarks]
+
+
+    # @photos = params[:photos]
+  #   @results = @landmark_names.refine_selection
     # @selected_landmarks = selected_landmarks
 
   end

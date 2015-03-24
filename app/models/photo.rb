@@ -12,9 +12,9 @@ class Photo < ActiveRecord::Base
     FlickRaw.url(@flickr_result)
   end
 
-  def owner
-
-  end
+  # def owner
+  #
+  # end
 
   # def self.get_random_image
   #
@@ -28,11 +28,11 @@ class Photo < ActiveRecord::Base
   #
   #   Photo.create(url: info.urls[0])
   # end
-
+  #
   def self.get_images_for_location(landmark_names)
     photos = []
 
-    @all_the_landmarks.each do |landmark|
+    @landmark_names.each do |landmark|
       search_results = flickr.photos.search(tags: landmark_names, license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
 
       photos += search_results.map { |result| Photo.new(result) }
