@@ -7,6 +7,8 @@ height="600"
 frameborder="0" style="border:0"
 src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>
 </iframe>
+<div class="main-content">
+
 
 <h1> New Landmarks </h1>
 
@@ -25,3 +27,4 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
 <h3><%= link_to "Start Search Again", new_search_path %></h3>
 
 <% end %>
+</div>

@@ -7,5 +7,8 @@ class Flickr
   def url
     FlickRaw.url(@flickr_result)
   end
-  
+
+  # def attribution
+  #   FlickRaw.attribution(@flickr_result)
+  # end
 end
