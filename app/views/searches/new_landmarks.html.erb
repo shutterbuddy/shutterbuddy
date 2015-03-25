@@ -22,6 +22,6 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
   <p>  <%= submit_tag "Submit" %> </p>
   <% end %>
 
-<h3><%= link_to "Start Search Again", searches_path %></h3>
+<h3><%= link_to "Start Search Again", new_search_path %></h3>
 
 <% end %>

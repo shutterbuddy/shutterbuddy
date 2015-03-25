@@ -5,3 +5,4 @@
 <% @search.photos.each do |ph| %>
   <%= image_tag ph.url %>
 <% end %>
+<h3><%= link_to "Start Search Again", new_search_path %></h3>

@@ -50,23 +50,9 @@ class SearchesController < ApplicationController
     end
     redirect_to search_path(@search)
   end
-    # end
-    # # def self.get_images_for_location(landmark_names)
-    # photos = []
-    #
-    #   selected_landmarks.each do |landmark|
-    #     search_results = flickr.photos.search(tags: selected_landmarks, license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
-    #
-    #     photos += search_results.map { |result| Photo.new(result) }
-    #   end
-    #   photos
 
   def show
-    # @selected_landmarks = Photo.get_images_for_location(@selected_landmarks)
   end
-
-
-
 
 
   private
