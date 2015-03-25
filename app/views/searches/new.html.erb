@@ -1,16 +1,19 @@
 <iframe
-class = "map"
-frameborder="0"
-style="border:0"
+
+class="map"
+frameborder="0" style="border:0"
+>>>>>>> 534e5ac1a277056be6fa6dce46bc9912118dff71
 src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>
 </iframe>
 
-<div class="main-content">
+<div class="info-box">
+  <h3><p>Welcome to ShutterBuddy!</p><br>
+    <p>We're enabling you to see the world from your own living room. Just enter the city you want to visit in the search box below,
+      then choose the photos you like best.</p><br>
+    <p>We'll make an album that you can share with your friends! </p></h3>
 
-  <h1>Search Shutterbuddy!</h1>
-  <p> Enter the city you visited in the search box:</p>
 
-  <%= form_tag searches_path, method: :post, :class => "info-box" do %>
+  <%= form_tag searches_path, method: :post do %>
     <%= text_field_tag :city, params[:city], id: "search-bar", class: "controls", placeholder: "Search Box" %>
   <% end %>
 

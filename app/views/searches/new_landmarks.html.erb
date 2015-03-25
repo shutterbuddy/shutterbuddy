@@ -1,7 +1,5 @@
-
-
-
 <iframe
+class="map"
 width="700"
 height="600"
 frameborder="0" style="border:0"
@@ -10,7 +8,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
 <div class="main-content">
 
 
-<h1> New Landmarks </h1>
+<div class="info-box"><h1> New Landmarks </h1>
 
 <% if @landmark_names.empty? == false %>
   <p> Check the places you visited on your trip! </p>
@@ -24,7 +22,6 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
   <p>  <%= submit_tag "Submit" %> </p>
   <% end %>
 
-<h3><%= link_to "Start Search Again", new_search_path %></h3>
-
 <% end %>
+</div>
 </div>

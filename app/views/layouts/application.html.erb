@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shutterbuddy</title>
+  <div class="header"><h1>Shutterbuddy!</h1></div>
+  <a class="header-link" href="/searches/new">Search Again</a>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
+<!-- <div class="map"> -->
 <%= yield %>
+<!-- </div> -->
 
+<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script> -->
 </body>
 </html>
+<!-- </div> -->
