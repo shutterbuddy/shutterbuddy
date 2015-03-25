@@ -27,9 +27,25 @@
       left: 0;
       height: 100%;
       width: 100%;
+      overflow: hidden;
+      height: 800px;
       z-index: 0;
-      margin: 0;
+      margin-top: -150px;
+      border: 0;
+
   }
+
+  // <div style="width: 100%; overflow: hidden; height: 300px;">
+  //   <iframe
+  //     src="https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>"
+  //     width="100%"
+  //     height="100%"
+  //     frameborder="0"
+  //     class = "map"
+  //     style="border:0; margin-top: -150px;">
+  //   </iframe>
+  // </div> -->
+
 
 .main-content {
   position: relative;
