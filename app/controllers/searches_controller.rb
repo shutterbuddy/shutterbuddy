@@ -46,10 +46,16 @@ class SearchesController < ApplicationController
     #   Photo.create!(p[:photo_id])
     array = params[:photos]
     array.each do |url|
-      Photo.create!(search_id: params[:id], url: url)
+      Photo.create!(search_id: params[:id], url: url, owner: params[:owner])
     end
     redirect_to search_path(@search)
   end
+
+  # def get_username
+  #   @photo = Photo.find(params[:id])
+  #   username = flickr.photos.getInfo(:photo_id)
+  # end
+
 
   def show
   end
