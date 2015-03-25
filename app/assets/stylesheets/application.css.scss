@@ -14,55 +14,94 @@
  *= require_self
  */
 
+body {
+  margin-top: 50px;
+}
 
-  h3 {
-    padding-top: 40px;
-    font-family: futura;
-  }
+h3 {
+  padding-top: 0px;
+  font-family: futura;
+}
 
-  .map { position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      height: 800px;
-      z-index: 0;
-      margin-top: -150px;
-      border: 0;
+.map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  height: 900px;
+  z-index: 0;
+  margin-top: -150px;
+  border: 0;
 
-  }
+}
 
-  // <div style="width: 100%; overflow: hidden; height: 300px;">
-  //   <iframe
-  //     src="https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>"
-  //     width="100%"
-  //     height="100%"
-  //     frameborder="0"
-  //     class = "map"
-  //     style="border:0; margin-top: -150px;">
-  //   </iframe>
-  // </div> -->
+.header {
+  color: white;
+  z-index: 10;
+  box-sizing: border-box;
+  background: #4D90FE;
+  padding: 1em;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100px;
+  width: 100%;
+  border-bottom: 1px solid darkgrey;
+  margin: 0;
+  font-family: futura;
+  font-size: 20px;
+  font-weight: 100;
+}
 
+.header-link {
+  position: fixed;
+  right: 20px;
+  top: 50px;
+  font-family: futura;
+  color: white;
+  z-index: 25;
+
+}
 
 .main-content {
+  margin: 50px;
   position: relative;
   z-index: 1;
   font-family: futura;
 }
 
 .info-box {
+  color: black;
   box-sizing: border-box;
+  border: 1px solid darkgrey;
   background: white;
   padding: 1em;
   position: fixed;
-  top: 30px;
+  top: 120px;
   right: 30px;
   bottom: 30px;
   overflow: auto;
   margin: 0;
+  font-family: futura;
+  font-size: 15px;
+  font-weight: 100;
+  width: 450px;
 
+  p {
+    width: 93%;
+    margin: 0 auto;
+  }
+
+  input {
+    padding: 1em;
+    background-color: #4D90FE;
+    color: white;
+    border: none;
+    border-radius: .2em;
+  }
 
 }
