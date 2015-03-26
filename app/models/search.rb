@@ -33,13 +33,13 @@ class Search < ActiveRecord::Base
 
   def get_images
     photos = []
-    landmarks_list = []
-    self.landmarks.each do |l|
-      landmarks_list << l.name
-    end
-
-    landmarks_list.each do |landmark|
-      search_results = flickr.photos.search(tags: ("landmark", "weather", "time of day") license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
+    self.landmarks.each do |landmark|
+      search_results = flickr.photos.search(tags: landmark.tags,
+                                            license: 3,
+                                            privacy_filter: 1,
+                                            safe_search: 1,
+                                            content_type: 1,
+                                            per_page: 5 )
 
       photos += search_results.map { |result| Flickr.new(result) }
     end

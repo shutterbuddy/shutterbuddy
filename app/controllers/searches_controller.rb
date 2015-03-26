@@ -27,7 +27,9 @@ class SearchesController < ApplicationController
     params[:landmarks].each do |l|
       if l =~ /\S/
         Landmark.create!(search_id: params[:id],
-                        name: l
+                        name: l,
+                        tod: tod,
+                        weather: weather,
         )
       end
     end
