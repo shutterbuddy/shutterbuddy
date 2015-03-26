@@ -46,7 +46,7 @@ class SearchesController < ApplicationController
     #   Photo.create!(p[:photo_id])
     array = params[:photos]
     array.each do |url|
-      Photo.create!(search_id: params[:id], url: url, owner:)
+      Photo.create!(search_id: params[:id], url: url, owner: params[:id])
     end
     redirect_to search_path(@search)
   end

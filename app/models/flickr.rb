@@ -12,8 +12,10 @@ class Flickr
     @flickr_result["id"]
   end
 
-  def get_owner
-    FlickRaw.owner(@flickr_result)
+  def get_username
+    # FlickRaw.owner(@flickr_result)
+    owner = flickr.photos.getInfo(@flickr_result)
+    # photos: params[:username]
   end
 
 
