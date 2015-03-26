@@ -11,7 +11,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
 <div class="info-box"><h1> New Landmarks </h1>
 
 <% if @landmark_names.empty? == false %>
-  <p> Check the places you visited on your trip! </p>
+  <p> Check the places you visited on your trip! </p><br>
   <%= form_tag create_landmarks_search_path do %>
     <% @landmark_names.each do |n| %>
       <div>
@@ -19,6 +19,11 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
         <%= label_tag n %>
       </div>
     <% end %>
+      <div>
+        <%= check_box_tag nil, nil, nil, :style => 'visibility: hidden' %>
+        <!-- 1st nil = name, 2nd nil = value, 3rd nil = whether checked -->
+        <%= text_field_tag "landmarks[]", "", placeholder: "Anywhere else?" %>
+      </div>
   <p>  <%= submit_tag "Submit" %> </p>
   <% end %>
 

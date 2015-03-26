@@ -25,9 +25,11 @@ class SearchesController < ApplicationController
   def create_landmarks
     @search = Search.find(params[:id])
     params[:landmarks].each do |l|
-      Landmark.create!(search_id: params[:id],
-                      name: l,
-      )
+      if l =~ /\S/
+        Landmark.create!(search_id: params[:id],
+                        name: l,
+        )
+      end
     end
     redirect_to new_photos_search_path(@search)
   end
