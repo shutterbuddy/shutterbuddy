@@ -1,3 +1,11 @@
+<script type="text/javascript">
+  function cloneExtraLandmark() {
+    $(".extra-landmark").first().clone().appendTo(".landmark-options");
+  }
+
+  $(window).load(cloneExtraLandmark)
+</script>
+
 <iframe
 class="map"
 width="700"
