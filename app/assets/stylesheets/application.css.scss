@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require weather-icons
  */
+
 
 body {
   margin-top: 50px;
@@ -109,5 +111,19 @@ h3 {
 img {
   padding: 3px;
   border: 1px solid grey;
-  
+
+}
+
+.landmark-options {
+  .weather-options, .time-of-day-options {
+    display: none;
+    margin-left: 2em;
+    font-size: 18px;
+  }
+  input:checked ~ .weather-options {
+    display: block;
+  }
+  input:checked ~ .time-of-day-options {
+    display: block;
+  }
 }
