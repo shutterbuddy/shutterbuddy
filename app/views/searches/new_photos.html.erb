@@ -1,4 +1,5 @@
-<h1>New Photos</h1>
+<h1>Select the photos you want to share:</h1>
+<p> </p>
 
 
 <%= form_tag create_photos_search_path do %>
@@ -6,6 +7,7 @@
     <div>
       <%= check_box_tag "photos[]", photo.url %>
       <%= image_tag photo.url  %>
+      <!-- <%= photo.photo_id %> -->
     </div>
   <% end %>
 <p>  <%= submit_tag "Submit" %> </p>

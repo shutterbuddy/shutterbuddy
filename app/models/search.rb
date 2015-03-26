@@ -40,7 +40,6 @@ class Search < ActiveRecord::Base
 
     landmarks_list.each do |landmark|
       search_results = flickr.photos.search(tags: landmark, license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
-
       photos += search_results.map { |result| Flickr.new(result) }
     end
     photos
