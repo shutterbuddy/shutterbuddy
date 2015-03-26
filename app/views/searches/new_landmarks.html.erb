@@ -3,7 +3,16 @@
     $(".extra-landmark").first().clone().appendTo(".landmark-options");
   }
 
+  function cloneIfLastChild(element) {
+    var extraLandmarkQuery = $(element).parent()
+    var lastExtraLandmarkQuery = $(".landmark-options").children(".extra-landmark").last()
+    if (extraLandmarkQuery[0] === lastExtraLandmarkQuery[0]) {
+      cloneExtraLandmark()
+    }
+  }
+
   $(window).load(cloneExtraLandmark)
+
 </script>
 
 <iframe
@@ -18,7 +27,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
   <div class="extra-landmark">
     <%= check_box_tag nil, nil, nil, :style => 'visibility: hidden' %>
     <!-- 1st nil = name, 2nd nil = value, 3rd nil = whether checked -->
-    <%= text_field_tag "landmarks[]", "", placeholder: "Anywhere else?" %>
+    <%= text_field_tag "landmarks[]", "", placeholder: "Anywhere else?", onKeyPress: "cloneIfLastChild(this)" %>
   </div>
 </div>
 
