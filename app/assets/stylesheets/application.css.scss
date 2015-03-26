@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require weather-icons
  */
+
 
 body {
   margin-top: 50px;
@@ -109,5 +111,5 @@ h3 {
 img {
   padding: 3px;
   border: 1px solid grey;
-  
+
 }

@@ -5,6 +5,7 @@ class Search < ActiveRecord::Base
   accepts_nested_attributes_for :landmarks
   accepts_nested_attributes_for :photos
 
+
   def map_query
     if name.present?
       "tourism+in+#{name.split.join('+')}"
