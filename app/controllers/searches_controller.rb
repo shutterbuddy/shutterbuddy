@@ -25,9 +25,11 @@ class SearchesController < ApplicationController
   def create_landmarks
     @search = Search.find(params[:id])
     params[:landmarks].each do |l|
-      Landmark.create!(search_id: params[:id],
-                      name: l,
-      )
+      if l =~ /\S/
+        Landmark.create!(search_id: params[:id],
+                        name: l,
+        )
+      end
     end
     redirect_to new_photos_search_path(@search)
   end
@@ -46,16 +48,10 @@ class SearchesController < ApplicationController
     #   Photo.create!(p[:photo_id])
     array = params[:photos]
     array.each do |url|
-      Photo.create!(search_id: params[:id], url: url, owner:)
+      Photo.create!(search_id: params[:id], url: url)
     end
     redirect_to search_path(@search)
   end
-
-  def get_username
-    @photo = Photo.find(params[:id])
-    username = flickr.photos.getInfo(:photo_id)
-  end
-
 
   def show
   end
