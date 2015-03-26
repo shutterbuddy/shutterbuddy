@@ -6,4 +6,8 @@ class Landmark < ActiveRecord::Base
   def get_results
   end
 
+  def tags
+    "#{self.name}, #{self.weather}"
+  end
+
 end
