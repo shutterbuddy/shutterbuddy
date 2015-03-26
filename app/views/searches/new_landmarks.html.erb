@@ -48,6 +48,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
               <%= check_box_tag "landmarks[]", n %>
               <%= label_tag n %>
               <%= select_tag "weather", options_for_select([ "Sunny", "Rainy", "Snowy" ]), include_blank: false %>
+              <%= select_tag "tod", options_for_select([ "Day", "Night", "Golden Hour" ]), include_blank: false %>
             </div>
           <% end %>
         </div>
