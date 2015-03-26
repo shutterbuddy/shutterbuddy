@@ -96,12 +96,12 @@ h3 {
     margin: 0 auto;
   }
 
-  // input {
-  //   padding: 1em;
-  //   background-color: #4D90FE;
-  //   color: black;
-  //   border: none;
-  //   border-radius: .2em;
-  // }
+  input[type=submit] {
+    padding: 1em;
+    background-color: #4D90FE;
+    color: black;
+    border: none;
+    border-radius: .2em;
+  }
 
 }

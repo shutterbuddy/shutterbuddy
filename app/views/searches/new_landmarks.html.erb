@@ -23,7 +23,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
         <%= check_box_tag nil, nil, nil, :style => 'visibility: hidden' %>
         <!-- 1st nil = name, 2nd nil = value, 3rd nil = whether checked -->
         <%= text_field_tag "landmarks[]", "", placeholder: "Anywhere else?" %>
-      </div>
+      </div><br>
   <p>  <%= submit_tag "Submit" %> </p>
   <% end %>
 
