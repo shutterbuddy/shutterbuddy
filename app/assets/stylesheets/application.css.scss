@@ -113,3 +113,17 @@ img {
   border: 1px solid grey;
 
 }
+
+.landmark-options {
+  .weather-options, .time-of-day-options {
+    display: none;
+    margin-left: 2em;
+    font-size: 18px;
+  }
+  input:checked ~ .weather-options {
+    display: block;
+  }
+  input:checked ~ .time-of-day-options {
+    display: block;
+  }
+}

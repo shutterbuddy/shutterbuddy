@@ -41,10 +41,10 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
       <p> Check the places you visited on your trip! </p>
       <br>
 
-      <style>
+      <!-- /*<style>
         .weather-options, .time-of-day-options {
           display: none;
-          margin-left: 1em;
+          margin-left: 2em;
           font-size: 18px;
         }
         input:checked ~ .weather-options {
@@ -53,7 +53,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
         input:checked ~ .time-of-day-options {
           display: block;
         }
-      </style>
+      </style>*/ -->
 
       <%= form_tag create_landmarks_search_path do %>
         <div class="landmark-options">
@@ -61,33 +61,28 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
             <div>
               <%= check_box_tag "landmarks[]", n %>
               <%= label_tag n %>
-                <div class="weather-options">
-                  <%= "Weather:" %>
-                  <%= radio_button_tag(:weather, "clear") %>
-                  <%= label_tag(:weather, ('<i class="wi wi-day-sunny"></i>').html_safe) %>
-                  <%= radio_button_tag(:weather, "rainy") %>
-                  <%= label_tag(:weather, ('<i class="wi wi-rain"></i>').html_safe) %>
-                  <%= radio_button_tag(:weather, "snowy") %>
-                  <%= label_tag(:weather, ('<i class="wi wi-snow"></i>').html_safe) %>
-                </div>
-                <div class="time-of-day-options">
-                  <%= "Time of day:" %>
-                  <%= radio_button_tag(:tod, "day") %>
-                  <%= label_tag(:weather, ('<i class="wi wi-day-sunny-overcast"></i>').html_safe) %>
-                  <%= radio_button_tag(:tod, "night") %>
-                  <%= label_tag(:weather, ('<i class="wi wi-night-clear"></i>').html_safe) %>
-                  <%= radio_button_tag(:tod, "golden_hour") %>
-                  <%= label_tag(:weather, ('<i class="wi wi-horizon-alt"></i>').html_safe) %>
-                </div>
-              <!-- <%= select_tag "weather", options_for_select(["☀", "☂", "☃" ]), include_blank: false %>
-              <%= select_tag "tod", options_for_select(["☼", "☽", "Golden Hour" ]), include_blank: false %> -->
+              <div class="weather-options">
+                <%= "Weather:" %>
+                <%= radio_button_tag(:weather, "clear") %>
+                <%= label_tag(:weather, ('<i class="wi wi-day-sunny"></i>').html_safe) %>
+                <%= radio_button_tag(:weather, "rainy") %>
+                <%= label_tag(:weather, ('<i class="wi wi-rain"></i>').html_safe) %>
+                <%= radio_button_tag(:weather, "snowy") %>
+                <%= label_tag(:weather, ('<i class="wi wi-snow"></i>').html_safe) %>
+              </div>
+              <div class="time-of-day-options">
+                <%= "Time of day:" %>
+                <%= radio_button_tag(:tod, "day") %>
+                <%= label_tag(:weather, ('<i class="wi wi-day-sunny-overcast"></i>').html_safe) %>
+                <%= radio_button_tag(:tod, "night") %>
+                <%= label_tag(:weather, ('<i class="wi wi-night-clear"></i>').html_safe) %>
+                <%= radio_button_tag(:tod, "golden_hour") %>
+                <%= label_tag(:weather, ('<i class="wi wi-horizon-alt"></i>').html_safe) %>
+              </div>
             </div>
           <% end %>
         </div>
-
         <br>
-        <%= wi_icon('day-lightning') %>
-
         <p>  <%= submit_tag "Submit" %> </p>
       <% end %>
 
