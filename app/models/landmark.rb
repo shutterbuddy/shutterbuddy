@@ -7,7 +7,7 @@ class Landmark < ActiveRecord::Base
   end
 
   def tags
-    "#{self.name}, #{self.weather}"
+    "#{self.name}, #{self.weather}, #{self.tod}"
   end
 
 end
