@@ -24,16 +24,23 @@ class SearchesController < ApplicationController
 
   def create_landmarks
     @search = Search.find(params[:id])
+
+
+
+
     params[:landmarks].each do |l|
       if l =~ /\S/
-        Landmark.create!(search_id: params[:id],
+        Landmark.create!(search: @search,
                         name: l,
-                        tod: tod,
-                        weather: weather,
-        )
+                        weather: params[:weather],
+                        tod: params[:tod]
+                        # weather: l[:weather],
+                        # tod: l[:tod]
+      )
       end
     end
     redirect_to new_photos_search_path(@search)
+
   end
 
   def new_photos
@@ -66,7 +73,7 @@ class SearchesController < ApplicationController
 
   def search_params
     params.require(:search).permit(:name,
-                                  landmarks_attributes: [:name, :link, :search_id,
+                                  landmarks_attributes: [:name, :link, :search_id, :tod, :weather,
                                                             photo_attributes: [:title, :url, :owner]]
                                     )
   end
