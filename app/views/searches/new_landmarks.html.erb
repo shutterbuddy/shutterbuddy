@@ -1,3 +1,20 @@
+<script type="text/javascript">
+  function cloneExtraLandmark() {
+    $(".extra-landmark").first().clone().appendTo(".landmark-options");
+  }
+
+  function cloneIfLastChild(element) {
+    var extraLandmarkQuery = $(element).parent()
+    var lastExtraLandmarkQuery = $(".landmark-options").children(".extra-landmark").last()
+    if (extraLandmarkQuery[0] === lastExtraLandmarkQuery[0]) {
+      cloneExtraLandmark()
+    }
+  }
+
+  $(window).load(cloneExtraLandmark)
+
+</script>
+
 <iframe
 class="map"
 width="700"
@@ -5,23 +22,39 @@ height="600"
 frameborder="0" style="border:0"
 src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>
 </iframe>
+
+<div style="display: none">
+  <div class="extra-landmark">
+    <%= check_box_tag nil, nil, nil, :style => 'visibility: hidden' %>
+    <!-- 1st nil = name, 2nd nil = value, 3rd nil = whether checked -->
+    <%= text_field_tag "landmarks[]", "", placeholder: "Anywhere else?", onKeyPress: "cloneIfLastChild(this)" %>
+  </div>
+</div>
+
 <div class="main-content">
 
 
-<div class="info-box"><h1> New Landmarks </h1>
+  <div class="info-box">
+    <h1> New Landmarks </h1>
 
-<% if @landmark_names.empty? == false %>
-  <p> Check the places you visited on your trip! </p>
-  <%= form_tag create_landmarks_search_path do %>
-    <% @landmark_names.each do |n| %>
-      <div>
-        <%= check_box_tag "landmarks[]", n %>
-        <%= label_tag n %>
-      </div>
+    <% if @landmark_names.empty? == false %>
+      <p> Check the places you visited on your trip! </p>
+      <br>
+
+      <%= form_tag create_landmarks_search_path do %>
+        <div class="landmark-options">
+          <% @landmark_names.each do |n| %>
+            <div>
+              <%= check_box_tag "landmarks[]", n %>
+              <%= label_tag n %>
+            </div>
+          <% end %>
+        </div>
+
+        <br>
+        <p>  <%= submit_tag "Submit" %> </p>
+      <% end %>
+
     <% end %>
-  <p>  <%= submit_tag "Submit" %> </p>
-  <% end %>
-
-<% end %>
-</div>
+  </div>
 </div>
