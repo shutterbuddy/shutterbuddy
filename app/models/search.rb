@@ -2,9 +2,9 @@ class Search < ActiveRecord::Base
   has_many :landmarks
   has_many :photos
 
-  accepts_nested_attributes_for :landmarks
+  accepts_nested_attributes_for :landmarks,
+    reject_if: proc { |attributes| attributes['name'] == "0" }
   accepts_nested_attributes_for :photos
-
 
   def map_query
     if name.present?
@@ -35,12 +35,7 @@ class Search < ActiveRecord::Base
   def get_images
     photos = []
     self.landmarks.each do |landmark|
-      search_results = flickr.photos.search(tags: landmark.tags,
-                                            license: 3,
-                                            privacy_filter: 1,
-                                            safe_search: 1,
-                                            content_type: 1,
-                                            per_page: 5 )
+      search_results = flickr.photos.search(tags: landmark.tags, tag_mode: "any", license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
 
       photos += search_results.map { |result| Flickr.new(result) }
     end

@@ -19,28 +19,27 @@ class SearchesController < ApplicationController
 
   def new_landmarks
     @search = Search.find(params[:id])
-    @landmark_names = @search.get_landmark_names
+    @search.get_landmark_names.each do |name|
+      @search.landmarks.build(name: name)
+    end
   end
 
   def create_landmarks
     @search = Search.find(params[:id])
 
-
-
-
-    params[:landmarks].each do |l|
-      if l =~ /\S/
-        Landmark.create!(search: @search,
-                        name: l,
-                        weather: params[:weather],
-                        tod: params[:tod]
-                        # weather: l[:weather],
-                        # tod: l[:tod]
-      )
-      end
-    end
+    @search.update(search_params)
+    # params[:landmarks].each do |l|
+    #   if l =~ /\S/
+    #     Landmark.create!(search: @search,
+    #                     name: l,
+    #                     weather: params[:weather],
+    #                     tod: params[:tod]
+    #                     # weather: l[:weather],
+    #                     # tod: l[:tod]
+    #   )
+    #     end
+    #  end
     redirect_to new_photos_search_path(@search)
-
   end
 
   def new_photos

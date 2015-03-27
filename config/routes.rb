@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     member do
       get "new_landmarks"
       get "new_photos"
-      post "create_landmarks"
-      post "create_photos"
+      patch "create_landmarks"
+      patch "create_photos"
     end
   end
 

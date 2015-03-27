@@ -37,7 +37,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
   <div class="info-box">
     <h1> New Landmarks </h1>
 
-    <% if @landmark_names.empty? == false %>
+    <% if @search.landmarks.empty? == false %>
       <p> Check the places you visited on your trip! </p>
       <br>
 
@@ -55,29 +55,29 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
         }
       </style>*/ -->
 
-      <%= form_tag create_landmarks_search_path do %>
+      <%= form_for @search, url: create_landmarks_search_path do |f| %>
         <div class="landmark-options">
-          <% @landmark_names.each do |n| %>
+          <%= f.fields_for :landmarks do |ff| %>
             <div>
-              <%= check_box_tag "landmarks[]", n %>
-              <%= label_tag n %>
+              <%= ff.check_box :name, {checked: false}, ff.object.name %>
+              <%= ff.label :name, ff.object.name %>
               <div class="weather-options">
                 <%= "Weather:" %>
-                <%= radio_button_tag(:weather, "clear") %>
-                <%= label_tag(:weather, ('<i class="wi wi-day-sunny"></i>').html_safe) %>
-                <%= radio_button_tag(:weather, "rainy") %>
-                <%= label_tag(:weather, ('<i class="wi wi-rain"></i>').html_safe) %>
-                <%= radio_button_tag(:weather, "snowy") %>
-                <%= label_tag(:weather, ('<i class="wi wi-snow"></i>').html_safe) %>
+                <%= ff.radio_button(:weather, "clear") %>
+                <%= ff.label(:weather, ('<i class="wi wi-day-sunny"></i>').html_safe) %>
+                <%= ff.radio_button(:weather, "rainy") %>
+                <%= ff.label(:weather, ('<i class="wi wi-rain"></i>').html_safe) %>
+                <%= ff.radio_button(:weather, "snowy") %>
+                <%= ff.label(:weather, ('<i class="wi wi-snow"></i>').html_safe) %>
               </div>
               <div class="time-of-day-options">
                 <%= "Time of day:" %>
-                <%= radio_button_tag(:tod, "day") %>
-                <%= label_tag(:weather, ('<i class="wi wi-day-sunny-overcast"></i>').html_safe) %>
-                <%= radio_button_tag(:tod, "night") %>
-                <%= label_tag(:weather, ('<i class="wi wi-night-clear"></i>').html_safe) %>
-                <%= radio_button_tag(:tod, "golden_hour") %>
-                <%= label_tag(:weather, ('<i class="wi wi-horizon-alt"></i>').html_safe) %>
+                <%= ff.radio_button(:tod, "day") %>
+                <%= ff.label(:weather, ('<i class="wi wi-day-sunny-overcast"></i>').html_safe) %>
+                <%= ff.radio_button(:tod, "night") %>
+                <%= ff.label(:weather, ('<i class="wi wi-night-clear"></i>').html_safe) %>
+                <%= ff.radio_button(:tod, "golden_hour") %>
+                <%= ff.label(:weather, ('<i class="wi wi-horizon-alt"></i>').html_safe) %>
               </div>
             </div>
           <% end %>
