@@ -61,6 +61,11 @@ class SearchesController < ApplicationController
     redirect_to search_path(@search)
   end
 
+  # def get_info
+  #   FOR EACH RESULT DO
+  #   attribution = Flickr.photos.getInfo(owner([:username]))
+  # end
+  #
   def show
   end
 
@@ -73,7 +78,7 @@ class SearchesController < ApplicationController
   def search_params
     params.require(:search).permit(:name,
                                   landmarks_attributes: [:name, :link, :search_id, :tod, :weather,
-                                                            photo_attributes: [:title, :url, :owner]]
+                                                            photo_attributes: [:title, :url, :owner, :photo_id]]
                                     )
   end
 

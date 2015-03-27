@@ -30,7 +30,7 @@ class Landmark < ActiveRecord::Base
   #   end
   # end
 
-  def text
+  def landmarkname
     "#{name}"
   end
 
