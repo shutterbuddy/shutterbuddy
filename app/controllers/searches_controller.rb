@@ -60,12 +60,7 @@ class SearchesController < ApplicationController
     end
     redirect_to search_path(@search)
   end
-
-  # def get_info
-  #   FOR EACH RESULT DO
-  #   attribution = Flickr.photos.getInfo(owner([:username]))
-  # end
-  #
+  
   def show
   end
 

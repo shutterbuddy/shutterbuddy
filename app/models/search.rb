@@ -36,14 +36,17 @@ class Search < ActiveRecord::Base
     photos = []
     self.landmarks.each do |landmark|
       search_results = flickr.photos.search(text: landmark.landmarkname, tag: landmark.tags, license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
-
-    # self.landmarks.each do |landmark|
-    #   search_results = flickr.photos.search(text: landmark.text, tags: landmark.tags, license: 3, privacy_filter: 1, safe_search: 1, content_type: 1, per_page: 5 )
-
       photos += search_results.map { |result| Flickr.new(result) }
     end
     photos
   end
+
+
+  def get_info
+    FOR EACH RESULT DO
+    attribution = Flickr.photos.getInfo(owner[:username])
+  end
+  
 
 
 end
