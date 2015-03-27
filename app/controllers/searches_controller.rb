@@ -31,16 +31,21 @@ class SearchesController < ApplicationController
   end
 
   def new_photos
-    # TODO: STILL NEEDS WORK
+    # @selected_landmarks = Photo.get_images_for_location(@selected_landmarks)
     @search = Search.find(params[:id])
-    @search.get_images # TODO: AND THIS
-    @search.photos.build(search_id: params[:id], url: params[:url])
-  end
+    @images = @search.get_images
 
+  end
 
   def create_photos
     @search = Search.find(params[:id])
-    @search.update(search_params)
+    # byebug
+    # params[:photos].each do |p|
+    #   Photo.create!(p[:photo_id])
+    array = params[:photos]
+    array.each do |url|
+      Photo.create!(search_id: params[:id], url: url)
+    end
     redirect_to search_path(@search)
   end
 
@@ -55,9 +60,9 @@ class SearchesController < ApplicationController
 
   def search_params
     params.require(:search).permit(:name,
-    landmarks_attributes: [:name, :link, :search_id, :tod, :weather,
-      photo_attributes: [:title, :url, :owner, :photo_id]]
-      )
+                                  landmarks_attributes: [:name, :link, :search_id, :tod, :weather,
+                                                            photo_attributes: [:title, :url, :owner, :photo_id]]
+                                    )
   end
 
 end
