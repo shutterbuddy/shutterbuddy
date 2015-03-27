@@ -1,14 +1,15 @@
 <h1>New Photos</h1>
 
 
-<%= form_for create_photos_search_path do |f| %>
-<%= f.fields_for :photos do |ff| %>
-<% @search.photos.each do |photo| %>
-<label>
-  <%= ff.check_box "photos[]", photo.url %>
-  <%= ff.image photo.url  %>
-</label>
-<% end %>
-<p>  <%= submit_tag "Submit" %> </p>
-<% end %>
+<%= form_for @search, create_photos_search_path do |f| %>
+  <%= f.fields_for :photos do |ff| %>
+    <label>
+      <%= ff.check_box "photos[]", photo.url #TODO: Make this more like the new_landmarks checkbox%>
+      <%= ff.image ff.object.url  %>
+      <span><%= ff.object.owner %></span>
+      <%= ff.hidden_field :url %>
+      <%= ff.hidden_field :owner %>
+    </label>
+    <p>  <%= submit_tag "Submit" %> </p>
+  <% end %>
 <% end %>

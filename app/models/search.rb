@@ -5,6 +5,7 @@ class Search < ActiveRecord::Base
   accepts_nested_attributes_for :landmarks,
     reject_if: proc { |attributes| attributes['name'] == "0" }
   accepts_nested_attributes_for :photos
+    #TODO: this needs reject_if as well
 
   def map_query
     if name.present?
