@@ -28,25 +28,31 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
     @search.update(search_params)
     redirect_to new_photos_search_path(@search)
+
   end
 
   def new_photos
     # @selected_landmarks = Photo.get_images_for_location(@selected_landmarks)
     @search = Search.find(params[:id])
+
     @images = @search.get_images
 
   end
 
   def create_photos
     @search = Search.find(params[:id])
-    # byebug
+
+    @search.update(search_params)
+
+    redirect_to search_path(@search)
+
     # params[:photos].each do |p|
     #   Photo.create!(p[:photo_id])
-    array = params[:photos]
-    array.each do |url|
-      Photo.create!(search_id: params[:id], url: url)
-    end
-    redirect_to search_path(@search)
+    # array = params[:photos]
+    # array.each do |url|
+    #   Photo.create!(search_id: params[:id], url: url)
+    # end
+
   end
 
   def show
