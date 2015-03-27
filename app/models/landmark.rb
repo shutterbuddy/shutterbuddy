@@ -6,7 +6,7 @@ class Landmark < ActiveRecord::Base
   def get_results
   end
 
-  
+
   # def conditions
   #
   #   return self.weather
@@ -30,10 +30,12 @@ class Landmark < ActiveRecord::Base
   #   end
   # end
 
-
+  def text
+    "#{name}"
+  end
 
   def tags
-    "#{self.name}, #{self.weather}, #{self.tod}"
+    "#{weather}, #{tod}"
   end
 
 end
