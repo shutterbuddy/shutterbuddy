@@ -5,6 +5,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
 </iframe>
 
 <div class="info-box">
+  <div class="info-box-content">
   <h3><p>Welcome to ShutterBuddy!</p><br>
     <p>We're enabling you to see the world from your own living room. Just enter the city you want to visit in the search box below,
       then choose the photos you like best.</p><br>
@@ -14,5 +15,5 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
   <%= form_tag searches_path, method: :post do %>
     <%= text_field_tag :city, params[:city], id: "search-bar", class: "controls", placeholder: "Search Box" %>
   <% end %>
-
+</div>
 </div>

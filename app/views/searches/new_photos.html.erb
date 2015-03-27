@@ -3,10 +3,10 @@
 
 <%= form_tag create_photos_search_path do %>
   <% @images.each do |photo| %>
-    <div>
+    <label>
       <%= check_box_tag "photos[]", photo.url %>
       <%= image_tag photo.url  %>
-    </div>
+    </label>
   <% end %>
 <p>  <%= submit_tag "Submit" %> </p>
 
