@@ -26,38 +26,21 @@ class SearchesController < ApplicationController
 
   def create_landmarks
     @search = Search.find(params[:id])
-
     @search.update(search_params)
-    # params[:landmarks].each do |l|
-    #   if l =~ /\S/
-    #     Landmark.create!(search: @search,
-    #                     name: l,
-    #                     weather: params[:weather],
-    #                     tod: params[:tod]
-    #                     # weather: l[:weather],
-    #                     # tod: l[:tod]
-    #   )
-    #     end
-    #  end
     redirect_to new_photos_search_path(@search)
   end
 
   def new_photos
     # @selected_landmarks = Photo.get_images_for_location(@selected_landmarks)
     @search = Search.find(params[:id])
-    @images = @search.get_images
-
+    @search.get_images
+    @search.photos.build(search_id: params[:id], url: params[:url])
   end
+
 
   def create_photos
     @search = Search.find(params[:id])
-    # byebug
-    # params[:photos].each do |p|
-    #   Photo.create!(p[:photo_id])
-    array = params[:photos]
-    array.each do |url|
-      Photo.create!(search_id: params[:id], url: url)
-    end
+    @search.update(photo_params)
     redirect_to search_path(@search)
   end
 
@@ -72,9 +55,9 @@ class SearchesController < ApplicationController
 
   def search_params
     params.require(:search).permit(:name,
-                                  landmarks_attributes: [:name, :link, :search_id, :tod, :weather,
-                                                            photo_attributes: [:title, :url, :owner]]
-                                    )
+    landmarks_attributes: [:name, :link, :search_id, :tod, :weather,
+      photo_attributes: [:title, :url, :owner]]
+      )
   end
 
 end

@@ -1,14 +1,14 @@
 <h1>New Photos</h1>
 
 
-<%= form_tag create_photos_search_path do %>
-  <% @images.each do |photo| %>
-    <label>
-      <%= check_box_tag "photos[]", photo.url %>
-      <%= image_tag photo.url  %>
-    </label>
-  <% end %>
+<%= form_for create_photos_search_path do |f| %>
+<%= f.fields_for :photos do |ff| %>
+<% @search.photos.each do |photo| %>
+<label>
+  <%= ff.check_box "photos[]", photo.url %>
+  <%= ff.image photo.url  %>
+</label>
+<% end %>
 <p>  <%= submit_tag "Submit" %> </p>
-
-
+<% end %>
 <% end %>
