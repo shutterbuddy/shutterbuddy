@@ -134,6 +134,18 @@ img {
 
 }
 
-.photo-options{
+.checkbox-label {
+  margin-top: 8em;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
 
+  .photo-options{
+    img {
+      position: relative;
+      width: 150px;
+      height: auto;
+    }
+
+  }
 }

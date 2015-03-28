@@ -5,15 +5,16 @@
 
 
 <%= form_for @search, url: create_photos_search_path do |f| %>
-<div class="photo-options">
-  <%= f.fields_for :photos do |ff| %>
-  <label>
+
+<label class="checkbox-label">
+  <div class="photo-options">
+    <%= f.fields_for :photos do |ff| %>
     <%= ff.check_box :url, {checked: false}, ff.object.url %>
     <%= image_tag ff.object.url  %>
     <span><%= ff.object.attribution %></span>
   </label>
-    <%= ff.hidden_field :url %>
-    <%= ff.hidden_field :attribution %>
+  <%= ff.hidden_field :url %>
+  <%= ff.hidden_field :attribution %>
   <% end %>
   <p><%= submit_tag "Submit" %></p>
 
