@@ -22,6 +22,8 @@ height="600"
 frameborder="0" style="border:0"
 src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<%= @search.map_query %>&zoom=12>
 </iframe>
+<a class="header-link" href="/searches/new">Search Again</a>
+
 
 <div style="display: none">
   <div class="extra-landmark">
@@ -41,20 +43,6 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
     <% if @search.landmarks.empty? == false %>
       <p> Check the places you visited on your trip! </p>
       <br>
-
-      <!-- /*<style>
-        .weather-options, .time-of-day-options {
-          display: none;
-          margin-left: 2em;
-          font-size: 18px;
-        }
-        input:checked ~ .weather-options {
-          display: block;
-        }
-        input:checked ~ .time-of-day-options {
-          display: block;
-        }
-      </style>*/ -->
 
       <%= form_for @search, url: create_landmarks_search_path do |f| %>
         <div class="landmark-options">
