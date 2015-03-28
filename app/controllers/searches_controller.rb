@@ -35,8 +35,16 @@ class SearchesController < ApplicationController
     # @selected_landmarks = Photo.get_images_for_location(@selected_landmarks)
     @search = Search.find(params[:id])
 
-    @images = @search.get_images
-
+    flickr_photos = @search.get_images
+    photos = []
+    flickr_photos.each do |flickr|
+      photo = Photo.new
+      photo.url = flickr.url
+      photo.attribution = flickr.owner
+      photo.flickr_photo_id = flickr.photo_id
+      photos << photo
+    end
+    @search.photos = photos
   end
 
   def create_photos

@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326181531) do
-
-  create_table "albums", force: :cascade do |t|
-    t.text     "url"
-    t.integer  "photo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20150328000756) do
 
   create_table "landmarks", force: :cascade do |t|
     t.string   "name"
@@ -34,9 +27,11 @@ ActiveRecord::Schema.define(version: 20150326181531) do
     t.integer  "landmark_id"
     t.text     "url"
     t.text     "attribution"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "search_id"
+    t.string   "photo_id"
+    t.string   "flickr_photo_id"
   end
 
   create_table "searches", force: :cascade do |t|
