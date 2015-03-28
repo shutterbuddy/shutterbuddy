@@ -1,6 +1,9 @@
 // <script type="text/javascript">
   function cloneExtraLandmark() {
-    $(".extra-landmark").first().clone().appendTo(".landmark-options");
+    var clone = $(".extra-landmark").first().clone()
+    // clone.toggleClass('extra-landmark added-landmark');
+    clone.appendTo(".landmark-options");
+    $(".extra-landmark").first().remove();
   }
 
   function cloneIfLastChild(element) {
@@ -26,6 +29,20 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
 
 
 <div style="display: none">
+  <div class="extra-landmark">
+    <%= check_box_tag nil, nil, nil, :style => 'visibility: hidden' %>
+    <!-- 1st nil = name, 2nd nil = value, 3rd nil = whether checked -->
+    <%= text_field_tag "search[landmarks_attributes][20][name]", "", placeholder: "Anywhere else?", onKeyPress: "cloneIfLastChild(this)" %>
+    <!-- <%#= text_field_tag "landmarks[]", "", placeholder: "Anywhere else?", onKeyPress: "cloneIfLastChild(this)" %> -->
+  </div>
+
+  <div class="extra-landmark">
+    <%= check_box_tag nil, nil, nil, :style => 'visibility: hidden' %>
+    <!-- 1st nil = name, 2nd nil = value, 3rd nil = whether checked -->
+    <%= text_field_tag "search[landmarks_attributes][21][name]", "", placeholder: "Anywhere else?", onKeyPress: "cloneIfLastChild(this)" %>
+    <!-- <%#= text_field_tag "landmarks[]", "", placeholder: "Anywhere else?", onKeyPress: "cloneIfLastChild(this)" %> -->
+  </div>
+
   <div class="extra-landmark">
     <%= check_box_tag nil, nil, nil, :style => 'visibility: hidden' %>
     <!-- 1st nil = name, 2nd nil = value, 3rd nil = whether checked -->
