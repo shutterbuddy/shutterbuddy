@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  before_action :set_search, only:[:show, :destroy, :update]
+  before_action :set_search, only:[:show, :destroy, :update, :share]
 
   def index
   end
@@ -26,6 +26,7 @@ class SearchesController < ApplicationController
 
   def create_landmarks
     @search = Search.find(params[:id])
+    # byebug
     @search.update(search_params)
     redirect_to new_photos_search_path(@search)
 
@@ -64,6 +65,9 @@ class SearchesController < ApplicationController
   end
 
   def show
+  end
+
+  def share
   end
 
 

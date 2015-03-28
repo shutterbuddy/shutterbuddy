@@ -1,4 +1,4 @@
-<script type="text/javascript">
+// <script type="text/javascript">
   function cloneExtraLandmark() {
     $(".extra-landmark").first().clone().appendTo(".landmark-options");
   }
@@ -29,7 +29,8 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
   <div class="extra-landmark">
     <%= check_box_tag nil, nil, nil, :style => 'visibility: hidden' %>
     <!-- 1st nil = name, 2nd nil = value, 3rd nil = whether checked -->
-    <%= text_field_tag "landmarks[]", "", placeholder: "Anywhere else?", onKeyPress: "cloneIfLastChild(this)" %>
+    <%= text_field_tag "search[landmarks_attributes][20][name]", "", placeholder: "Anywhere else?", onKeyPress: "cloneIfLastChild(this)" %>
+    <!-- <%#= text_field_tag "landmarks[]", "", placeholder: "Anywhere else?", onKeyPress: "cloneIfLastChild(this)" %> -->
   </div>
 </div>
 
@@ -47,13 +48,13 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
       <%= form_for @search, url: create_landmarks_search_path do |f| %>
         <div class="landmark-options">
           <%= f.fields_for :landmarks do |ff| %>
-            <div>
+            <div class="landmark">
               <%= ff.check_box :name, {checked: false}, ff.object.name %>
               <%= ff.label :name, ff.object.name %>
               <div class="weather-options">
                 <%= "Weather:" %>
-                <!-- <%= ff.radio_button(:weather, "clear") %>
-                <%= ff.label(:weather, ('<i class="wi wi-day-sunny"></i>').html_safe) %> -->
+                <!-- <%#= ff.radio_button(:weather, "clear") %>
+                <%#= ff.label(:weather, ('<i class="wi wi-day-sunny"></i>').html_safe) %> -->
                 <%= ff.radio_button(:weather, "rainy") %>
                 <%= ff.label(:weather, ('<i class="wi wi-rain"></i>').html_safe) %>
                 <%= ff.radio_button(:weather, "snowy") %>
@@ -61,8 +62,8 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
               </div>
               <div class="time-of-day-options">
                 <%= "Time of day:" %>
-                <!-- <%= ff.radio_button(:tod, "day") %>
-                <%= ff.label(:weather, ('<i class="wi wi-day-sunny-overcast"></i>').html_safe) %> -->
+                <!-- <%#= ff.radio_button(:tod, "day") %>
+                <%#= ff.label(:weather, ('<i class="wi wi-day-sunny-overcast"></i>').html_safe) %> -->
                 <%= ff.radio_button(:tod, "night") %>
                 <%= ff.label(:weather, ('<i class="wi wi-night-clear"></i>').html_safe) %>
                 <%= ff.radio_button(:tod, "golden_hour") %>

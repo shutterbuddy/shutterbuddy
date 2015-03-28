@@ -1,0 +1,11 @@
+<a class="header-link" href="/searches/new">Try it yourself!</a>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<% @search.photos.each do |p| %>
+  <%= image_tag p.url %>
+<% end %>

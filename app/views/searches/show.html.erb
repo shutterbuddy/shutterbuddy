@@ -1,8 +1,10 @@
+<a class="header-link" href="/searches/new">Search Again</a>
+
 <div class="verbage">
 
-
 <h1>Here are the photos you wanted to share:</h1>
-<p>You can post the web address on your social media sites or you can email the link. </p>
+  <div class="copyLink">Here are the photos you wanted to share! Copy this link to share with friends and family: <%= share_search_path(@search.id) %>
+
 <p>Happy travels!</p>
 
 <% @search.photos.each do |ph| %>
@@ -10,4 +12,5 @@
 
 <% end %>
 
+</div>
 </div>
