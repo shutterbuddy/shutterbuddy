@@ -85,7 +85,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
                 <%#= ff.label(:weather, ('<i class="wi wi-day-sunny-overcast"></i>').html_safe) %> -->
                 <%= ff.radio_button(:tod, "night") %>
                 <%= ff.label(:tod, ('<i class="wi wi-night-clear"></i>').html_safe) %>
-                <%= ff.radio_button(:tod, "golden hour") %>
+                <%= ff.radio_button(:tod, "sunset") %>
                 <%= ff.label(:tod, ('<i class="wi wi-horizon-alt"></i>').html_safe) %>
                 <%= ff.radio_button(:tod, "") %>
                 <%= ff.label(:tod, "--", {checked: true}) %>
