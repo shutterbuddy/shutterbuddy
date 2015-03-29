@@ -1,3 +1,17 @@
+<script type="text/javascript">
+function toggleChecked(element) {
+  var checkbox = $(element).parent().find("input[type=checkbox]")
+  if (checkbox.prop("checked")) {
+    $(element).removeClass("checked")
+    checkbox.prop("checked", false)
+  }
+  else {
+    $(element).addClass("checked")
+    checkbox.prop("checked", true)
+  }
+}
+</script>
+
 <a class="header-link" href="/searches/new">Search Again</a>
 
 
@@ -11,13 +25,11 @@
 
     <%= f.fields_for :photos do |ff| %>
       <div class="photo-box">
-        <label class="checkbox-label">
-          <%= image_tag ff.object.url  %>
-          <%= ff.check_box :url, {checked: false}, ff.object.url %>
-          <%= ff.hidden_field :attribution %>
-        </label>
+        <%= image_tag ff.object.url, onClick: "toggleChecked(this)" %>
+        <%= ff.check_box :url, {checked: false}, ff.object.url %>
         <p><%= ff.object.attribution %></p>
       </div>
+      <%= ff.hidden_field :attribution %>
     <% end %>
     <div class="clear"><%= submit_tag "Submit" %></div>
   </div>

@@ -135,22 +135,21 @@ img {
 }
 
 .photo-options{
-  .photo-box{
+  .photo-box {
     float: left;
     margin-right: 10px;
 
-    .checkbox-label {
-      top: 0px;
-      bottom: 0px;
+    img {
+      width: auto;
+      height: 175px;
+    }
 
-      img {
-        width: auto;
-        height: 175px;
-      }
+    img.checked {
+      background-color: #4D90FE;
+    }
 
-      input[type=checkbox] {
-        // display: none;
-      }
+    input[type=checkbox] {
+      display: none;
     }
 
     p {
