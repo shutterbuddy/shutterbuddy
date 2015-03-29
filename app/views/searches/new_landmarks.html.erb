@@ -72,21 +72,23 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
               <%= ff.label :name, ff.object.name %>
               <div class="weather-options">
                 <%= "Weather:" %>
-                <!-- <%#= ff.radio_button(:weather, "clear") %>
-                <%#= ff.label(:weather, ('<i class="wi wi-day-sunny"></i>').html_safe) %> -->
-                <%= ff.radio_button(:weather, "rainy") %>
+                <%= ff.radio_button(:weather, "rain") %>
                 <%= ff.label(:weather, ('<i class="wi wi-rain"></i>').html_safe) %>
-                <%= ff.radio_button(:weather, "snowy") %>
+                <%= ff.radio_button(:weather, "snow") %>
                 <%= ff.label(:weather, ('<i class="wi wi-snow"></i>').html_safe) %>
+                <%= ff.radio_button(:weather, "") %>
+                <%= ff.label(:weather, "--", {checked: true}) %>
               </div>
               <div class="time-of-day-options">
                 <%= "Time of day:" %>
                 <!-- <%#= ff.radio_button(:tod, "day") %>
                 <%#= ff.label(:weather, ('<i class="wi wi-day-sunny-overcast"></i>').html_safe) %> -->
                 <%= ff.radio_button(:tod, "night") %>
-                <%= ff.label(:weather, ('<i class="wi wi-night-clear"></i>').html_safe) %>
-                <%= ff.radio_button(:tod, "golden_hour") %>
-                <%= ff.label(:weather, ('<i class="wi wi-horizon-alt"></i>').html_safe) %>
+                <%= ff.label(:tod, ('<i class="wi wi-night-clear"></i>').html_safe) %>
+                <%= ff.radio_button(:tod, "golden hour") %>
+                <%= ff.label(:tod, ('<i class="wi wi-horizon-alt"></i>').html_safe) %>
+                <%= ff.radio_button(:tod, "") %>
+                <%= ff.label(:tod, "--", {checked: true}) %>
               </div>
             </div>
           <% end %>
