@@ -58,6 +58,9 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
 
   <div class="info-box">
     <div class="info-box-content">
+      <% if flash[:notice] %>
+        <p class="error"><%= flash[:notice] %></p>
+      <% end %>
     <h1> Pick Landmarks </h1>
 
     <% if @search.landmarks.empty? == false %>

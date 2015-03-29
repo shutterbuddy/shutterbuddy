@@ -28,13 +28,18 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
     @search.update(search_params)
     redirect_to new_photos_search_path(@search)
-
   end
 
   def new_photos
     @search = Search.find(params[:id])
-    @search.get_images.each do |flickr|
-      @search.photos.build(url: flickr.url, attribution: flickr.attribution)
+    images = @search.get_images
+    if images.empty?
+      flash[:notice] = "No photos for that search, please try another place"
+      redirect_to new_landmarks_search_path(@search)
+    else
+      images.each do |flickr|
+        @search.photos.build(url: flickr.url, attribution: flickr.attribution)
+      end
     end
   end
 
