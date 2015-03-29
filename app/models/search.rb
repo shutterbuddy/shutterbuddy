@@ -3,7 +3,7 @@ class Search < ActiveRecord::Base
   has_many :photos
 
   accepts_nested_attributes_for :landmarks,
-    reject_if: proc { |attributes| attributes['name'] == "0" || attributes['name'] == ""}
+    reject_if: proc { |attributes| attributes['name'] == "0" || attributes['name'] !~ /\S/ }
   accepts_nested_attributes_for :photos,
     reject_if: proc { |attributes| attributes['url'] == "0" }
 

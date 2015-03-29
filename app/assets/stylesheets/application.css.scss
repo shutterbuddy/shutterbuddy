@@ -134,18 +134,31 @@ img {
 
 }
 
-.checkbox-label {
-  margin-top: 8em;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
+.photo-options{
+  .photo-box{
+    float: left;
+    margin-right: 10px;
 
-  .photo-options{
-    img {
-      position: relative;
-      width: 150px;
-      height: auto;
+    .checkbox-label {
+      top: 0px;
+      bottom: 0px;
+
+      img {
+        width: auto;
+        height: 175px;
+      }
+
+      input[type=checkbox] {
+        // display: none;
+      }
     }
 
+    p {
+      margin-top: 0;
+    }
+  }
+
+  .clear {
+    clear: left;
   }
 }
