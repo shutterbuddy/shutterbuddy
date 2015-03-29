@@ -8,16 +8,13 @@ class Flickr
     FlickRaw.url(@flickr_result)
   end
 
-  def owner
-    self.as_json["flickr_result"]["owner"]
+  def attribution
+    info_results = flickr.photos.getInfo(photo_id: self.photo_id)
+    info_results["owner"]["username"]
   end
 
   def photo_id
     self.as_json["flickr_result"]["id"]
   end
 
-
-  # def attribution
-  #   FlickRaw.attribution(@flickr_result)
-  # end
 end

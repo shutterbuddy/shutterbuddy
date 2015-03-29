@@ -34,7 +34,7 @@ class SearchesController < ApplicationController
   def new_photos
     @search = Search.find(params[:id])
     @search.get_images.each do |flickr|
-      @search.photos.build(url: flickr.url, attribution: flickr.owner)
+      @search.photos.build(url: flickr.url, attribution: flickr.attribution)
     end
   end
 
