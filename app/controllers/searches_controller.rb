@@ -26,31 +26,20 @@ class SearchesController < ApplicationController
 
   def create_landmarks
     @search = Search.find(params[:id])
-    # byebug
     @search.update(search_params)
     redirect_to new_photos_search_path(@search)
 
   end
 
   def new_photos
-    # @selected_landmarks = Photo.get_images_for_location(@selected_landmarks)
     @search = Search.find(params[:id])
-
-    flickr_photos = @search.get_images
-    photos = []
-    flickr_photos.each do |flickr|
-      photo = Photo.new
-      photo.url = flickr.url
-      photo.attribution = flickr.owner
-      photo.flickr_photo_id = flickr.photo_id
-      photos << photo
+    @search.get_images.each do |flickr|
+      @search.photos.build(url: flickr.url, attribution: flickr.owner)
     end
-    @search.photos = photos
   end
 
   def create_photos
     @search = Search.find(params[:id])
-
     @search.update(search_params)
 
     redirect_to search_path(@search)
@@ -78,9 +67,9 @@ class SearchesController < ApplicationController
 
   def search_params
     params.require(:search).permit(:name,
-                                  landmarks_attributes: [:name, :link, :search_id, :tod, :weather,
-                                                            photo_attributes: [:title, :url, :owner, :photo_id]]
-                                    )
+                                  landmarks_attributes: [:name, :link, :search_id, :tod, :weather],
+                                  photos_attributes: [:url, :attribution, :search_id]
+                                  )
   end
 
 end
