@@ -8,4 +8,6 @@
 <br>
 <% @search.photos.each do |p| %>
   <%= image_tag p.url %>
+  <%= p.attribution %>
+
 <% end %>
