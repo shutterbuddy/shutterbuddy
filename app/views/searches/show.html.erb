@@ -3,7 +3,7 @@
 <div class="verbage">
 
 <h1>Here are the photos you wanted to share:</h1>
-  <p><div class="copyLink">Here are the photos you wanted to share! Copy this link to share with friends and family: <%= "https://shutterbuddy.herokuapp.com/share/#{@search.id}" %>
+  <p><div class="copyLink">Here are the photos you wanted to share! Copy this link to share with friends and family: <%= link_to "https://shutterbuddy.herokuapp.com/share/#{@search.id}", share_path(@search) %>
 
 <p>Happy travels!</p>
 

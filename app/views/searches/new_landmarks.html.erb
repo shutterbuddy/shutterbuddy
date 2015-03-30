@@ -27,8 +27,6 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
 </iframe>
 <div class="map-cover"></div>
 
-<a class="header-link" href="/searches/new">Search Again</a>
-
 
 <div style="display: none">
   <div class="extra-landmark">
@@ -95,7 +93,9 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
           <% end %>
         </div>
         <br>
-        <p>  <%= submit_tag "Submit" %> </p>
+        <p>  <%= submit_tag "Submit" %> <a href="/searches/new">Start over with a new city</a></p>
+
+
       <% end %>
 
     <% end %>
