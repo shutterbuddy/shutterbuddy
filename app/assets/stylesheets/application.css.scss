@@ -127,6 +127,10 @@ img {
 }
 
 .landmark-options {
+  .landmark + .landmark {
+    margin-top: .5em;
+  }
+
   .weather-options, .time-of-day-options {
     display: none;
     margin-left: 2em;

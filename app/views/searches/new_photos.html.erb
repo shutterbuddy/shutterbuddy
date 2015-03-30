@@ -12,9 +12,6 @@ function toggleChecked(element) {
 }
 </script>
 
-<a class="header-link" href="/searches/new">Search Again</a>
-
-
 <br>
 <br>
 <br>
@@ -34,6 +31,7 @@ function toggleChecked(element) {
       </div>
       <%= ff.hidden_field :attribution %>
     <% end %>
-    <div class="clear"><%= submit_tag "Submit" %></div>
+    <div class="clear"><p> <%= submit_tag "Submit" %> <a href="/searches/new">Start over with a new city</a></p>
+</div>
   </div>
 <% end %>
