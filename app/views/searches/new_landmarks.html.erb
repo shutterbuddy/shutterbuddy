@@ -76,7 +76,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
               <div class="weather-options">
                 <%= "Weather:" %>
                 <%= ff.radio_button(:weather, "rain") %>
-                <%= ff.label(:weather, ('<i class="wi wi-sprinkles"></i>').html_safe ) %>
+                <%= ff.label(:weather, ('<i class="wi wi-sprinkles"></i>').html_safe) %>
                 <%= ff.radio_button(:weather, "snow") %>
                 <%= ff.label(:weather, ('<i class="wi wi-snow"></i>').html_safe) %>
                 <%= ff.radio_button(:weather, "") %>

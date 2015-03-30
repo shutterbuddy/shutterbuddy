@@ -20,9 +20,14 @@ body {
   margin-top: 50px;
 }
 
+h1 {
+  font-family: 'Amaranth';
+  font-size: 30px;
+}
+
 h3 {
   padding-top: 0px;
-  font-family: futura;
+  font-family: 'Amaranth';
 }
 
 .map {
@@ -62,7 +67,7 @@ h3 {
   border-bottom: 1px solid darkgrey;
   margin: 5;
   font-family: 'Amaranth', sans-serif;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 100;
 }
 
@@ -138,6 +143,8 @@ img {
 .info-box-content {
   background: white;
   padding: 1em;
+  font: 'Amaranth';
+  font-size: 18px;
 
 }
 
