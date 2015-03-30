@@ -8,7 +8,10 @@
 
 <% @search.photos.each do |ph| %>
   <%= image_tag ph.url %>
-  <%= ph.attribution %>
+  <a href="https://www.flickr.com/photos/<%= ph.attribution %>/">
+    <%= ph.attribution %>
+  </a>
+
 
 <% end %><br>
 <br>
@@ -17,7 +20,3 @@
 </p>
 </div>
 </div>
-
-
-
-<!-- "https://localhost:3000/share/#{@search.id}" -->
