@@ -15,7 +15,10 @@ function toggleChecked(element) {
 <a class="header-link" href="/searches/new">Search Again</a>
 
 
-<h1>New Photos</h1>
+<br>
+<br>
+<br>
+<h3>Click on the photos you want to include in your album!</h3>
 
 
 <%= form_for @search, url: create_photos_search_path do |f| %>
@@ -27,7 +30,7 @@ function toggleChecked(element) {
       <div class="photo-box">
         <%= image_tag ff.object.url, onClick: "toggleChecked(this)" %>
         <%= ff.check_box :url, {checked: false}, ff.object.url %>
-        <p><%= ff.object.attribution %></p>
+        <p class="attribution"><%= ff.object.attribution %></p>
       </div>
       <%= ff.hidden_field :attribution %>
     <% end %>

@@ -64,7 +64,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
     <h1> Pick Landmarks </h1>
 
     <% if @search.landmarks.empty? == false %>
-      <p> Check the places you visited on your trip! </p>
+      <h3> Check the places you visited on your trip! </h3>
       <br>
 
       <%= form_for @search, url: create_landmarks_search_path do |f| %>
@@ -76,22 +76,20 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
               <div class="weather-options">
                 <%= "Weather:" %>
                 <%= ff.radio_button(:weather, "rain") %>
-                <%= ff.label(:weather, ('<i class="wi wi-rain"></i>').html_safe) %>
+                <%= ff.label(:weather, ('<i class="wi wi-sprinkles"></i>').html_safe ) %>
                 <%= ff.radio_button(:weather, "snow") %>
                 <%= ff.label(:weather, ('<i class="wi wi-snow"></i>').html_safe) %>
                 <%= ff.radio_button(:weather, "") %>
-                <%= ff.label(:weather, "--", {checked: true}) %>
+                <%= ff.label(:weather, "Any", {checked: true}) %>
               </div>
               <div class="time-of-day-options">
                 <%= "Time of day:" %>
-                <!-- <%#= ff.radio_button(:tod, "day") %>
-                <%#= ff.label(:weather, ('<i class="wi wi-day-sunny-overcast"></i>').html_safe) %> -->
                 <%= ff.radio_button(:tod, "night") %>
-                <%= ff.label(:tod, ('<i class="wi wi-night-clear"></i>').html_safe) %>
+                <%= ff.label(:tod, ('<i class="wi wi-moon-waxing-cresent-2"></i>').html_safe) %>
                 <%= ff.radio_button(:tod, "sunset") %>
-                <%= ff.label(:tod, ('<i class="wi wi-horizon-alt"></i>').html_safe) %>
+                <%= ff.label(:tod, ('<i class="wi wi-horizon"></i>').html_safe) %>
                 <%= ff.radio_button(:tod, "") %>
-                <%= ff.label(:tod, "--", {checked: true}) %>
+                <%= ff.label(:tod, "Any", {checked: true}) %>
               </div>
             </div>
           <% end %>
