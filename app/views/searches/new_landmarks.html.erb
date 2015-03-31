@@ -72,22 +72,38 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
               <%= ff.check_box :name, {checked: false}, ff.object.name %>
               <%= ff.label :name, ff.object.name %>
               <div class="weather-options">
-                <%= "Weather:" %>
-                <%= ff.radio_button(:weather, "rain") %>
-                <%= ff.label(:weather, ('<i class="wi wi-sprinkles"></i>').html_safe) %>
-                <%= ff.radio_button(:weather, "snow") %>
-                <%= ff.label(:weather, ('<i class="wi wi-snow"></i>').html_safe) %>
-                <%= ff.radio_button(:weather, "") %>
-                <%= ff.label(:weather, "Any", {checked: true}) %>
+                <div class="option-label">
+                  <%= "Weather:" %>
+                </div>
+                <div class="option-choice">
+                  <%= ff.radio_button(:weather, "rain") %>
+                  <%= ff.label(:weather, ('<i class="wi wi-sprinkles" title="Rainy"></i>').html_safe) %>
+                </div>
+                <div class="option-choice">
+                  <%= ff.radio_button(:weather, "snow") %>
+                  <%= ff.label(:weather, ('<i class="wi wi-snow" title="Snowy"></i>').html_safe) %>
+                </div>
+                <div class="option-choice">
+                  <%= ff.radio_button(:weather, "") %>
+                  <%= ff.label(:weather, "Any", {checked: true}) %>
+                </div>
               </div>
               <div class="time-of-day-options">
-                <%= "Time of day:" %>
-                <%= ff.radio_button(:tod, "night") %>
-                <%= ff.label(:tod, ('<i class="wi wi-moon-waxing-cresent-2"></i>').html_safe) %>
-                <%= ff.radio_button(:tod, "sunset") %>
-                <%= ff.label(:tod, ('<i class="wi wi-horizon"></i>').html_safe) %>
-                <%= ff.radio_button(:tod, "") %>
-                <%= ff.label(:tod, "Any", {checked: true}) %>
+                <div class="option-label">
+                  <%= "Time of day:" %>
+                </div>
+                <div class="option-choice">
+                  <%= ff.radio_button(:tod, "night") %>
+                  <%= ff.label(:tod, ('<i class="wi wi-moon-waxing-cresent-2" title="Night"></i>').html_safe) %>
+                </div>
+                <div class="option-choice">
+                  <%= ff.radio_button(:tod, "sunset") %>
+                  <%= ff.label(:tod, ('<i class="wi wi-horizon" title="Sunset"></i>').html_safe) %>
+                </div>
+                <div class="option-choice">
+                  <%= ff.radio_button(:tod, "") %>
+                  <%= ff.label(:tod, "Any", {checked: true}) %>
+                </div>
               </div>
             </div>
           <% end %>
