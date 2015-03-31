@@ -5,6 +5,7 @@
   <p><div class="copyLink">Here are the photos you wanted to share! Copy this link to share with friends and family: <%= link_to "https://shutterbuddy.herokuapp.com/share/#{@search.id}", share_path, target: "_blank" %>
 
     <p>Happy travels!</p>
+    <div class="newsearchlink"><a href="/searches/new">Start over with a new city</a></div>
     <div class="photo-display">
       <div class="photo-share">
         <% @search.photos.each do |ph| %>
@@ -18,7 +19,7 @@
     <br>
     <br>
 
-    <a href="/searches/new">Start over with a new city</a>
+
 
   </p>
 </div>

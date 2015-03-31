@@ -27,16 +27,15 @@ function toggleChecked(element) {
       <div class="photo-box">
         <%= image_tag ff.object.url, onClick: "toggleChecked(this)" %>
         <%= ff.check_box :url, {checked: false}, ff.object.url %>
-        <div class="attribution"></div>
         <p>
           <a href="https://www.flickr.com/photos/<%= ff.object.attribution %>/" target="_blank">
-            <%= ff.object.attribution %>
+            <div class="attribution"><%= ff.object.attribution %></div>
           </a>
         </p>
       </div>
       <%= ff.hidden_field :attribution %>
     <% end %>
-    <div class="clear"><p> <%= submit_tag "Submit" %> <a href="/searches/new">Start over with a new city</a></p>
+    <div class="clear"><p><%= submit_tag "Submit" %><a href="/searches/new">Start over with a new city</a></p>
 </div>
   </div>
 <% end %>
