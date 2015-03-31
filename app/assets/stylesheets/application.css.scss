@@ -249,3 +249,24 @@ img {
   font-weight: bold;
   font-size: 16px;
 }
+
+
+.photo-display {
+  float: left;
+  margin-right: 10px;
+
+  img {
+    margin-right: 10px;
+    width: auto;
+    height: 250px;
+
+    p {
+      margin-top: 15em;
+    }
+  }
+
+  .username {
+    font-family: sans-serif;
+    font-size: 18;
+  }
+}
