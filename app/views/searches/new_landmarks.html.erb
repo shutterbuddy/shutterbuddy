@@ -79,11 +79,11 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
                 <div class="option-choice">
 
                   <%= ff.radio_button(:weather, "rain") %>
-                  <%= ff.label(:weather, ('<i class="wi-alien" title="Rainy"></i>').html_safe, value: "rain") %>
+                  <%= ff.label(:weather, ('<i class="wi wi-rain-wind" title="Rainy"></i>').html_safe, value: "rain") %>
                 </div>
                 <div class="option-choice">
                   <%= ff.radio_button(:weather, "snow") %>
-                  <%= ff.label(:weather, ('<i class="wi-snowflake-cold" title="Snowy"></i>').html_safe, value: "snow") %>
+                  <%= ff.label(:weather, ('<i class="wi wi-snowflake-cold" title="Snowy"></i>').html_safe, value: "snow") %>
                 </div>
                 <div class="option-choice">
                   <%= ff.radio_button(:weather, "") %>
@@ -96,7 +96,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
                 </div>
                 <div class="option-choice">
                   <%= ff.radio_button(:tod, "night") %>
-                  <%= ff.label(:tod, ('<i class="wi-moon-waxing-cresent-3" title="Night"></i>').html_safe, value: "night") %>
+                  <%= ff.label(:tod, ('<i class="wi wi-moon-waxing-cresent-3" title="Night"></i>').html_safe, value: "night") %>
                 </div>
                 <div class="option-choice">
                   <%= ff.radio_button(:tod, "sunset") %>

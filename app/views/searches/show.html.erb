@@ -1,22 +1,22 @@
 
 <div class="verbage">
 
-<h1>Here are the photos you wanted to share:</h1>
+  <h1>Here are the photos you wanted to share:</h1>
   <p><div class="copyLink">Here are the photos you wanted to share! Copy this link to share with friends and family: <%= link_to "https://shutterbuddy.herokuapp.com/share/#{@search.id}", share_path, target: "_blank" %>
 
-<p>Happy travels!</p>
+    <p>Happy travels!</p>
 
-<% @search.photos.each do |ph| %>
-  <%= image_tag ph.url %>
-  <a href="https://www.flickr.com/photos/<%= ph.attribution %>/" target="_blank">
-    <%= ph.attribution %>
-  </a>
+    <% @search.photos.each do |ph| %>
+    <%= image_tag ph.url %>
+    <a href="https://www.flickr.com/photos/<%= ph.attribution %>/" target="_blank">
+      <%= ph.attribution %>
+    </a>
 
 
-<% end %><br>
-<br>
- <a href="/searches/new">Start over with a new city</a>
+    <% end %><br>
+    <br>
+    <a href="/searches/new"> Start over with a new city</a>
 
-</p>
+  </p>
 </div>
 </div>
