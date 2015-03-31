@@ -18,6 +18,7 @@
 
 </script>
 
+
 <iframe
 class="map"
 width="700"
@@ -76,6 +77,7 @@ src=https://www.google.com/maps/embed/v1/search?key=<%= ENV['GOOGLE_KEY'] %>&q=<
                   <%= "Weather:" %>
                 </div>
                 <div class="option-choice">
+
                   <%= ff.radio_button(:weather, "rain") %>
                   <%= ff.label(:weather, ('<i class="wi wi-sprinkles" title="Rainy"></i>').html_safe) %>
                 </div>
