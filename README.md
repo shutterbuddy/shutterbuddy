@@ -14,6 +14,6 @@ Drawing from Flickr’s API, ShutterBuddy provides a selection of photos that ha
 * Google Places API
 * Flickr API
 
-# Developed as a final project for The Iron Yard code school by: 
+# Developed as a final project for The Iron Yard code school by:
 * Jesseract https://github.com/jesseract
 * Fallonious https://github.com/Fallonious
