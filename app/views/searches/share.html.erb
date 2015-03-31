@@ -8,7 +8,7 @@
 <br>
 <% @search.photos.each do |p| %>
   <%= image_tag p.url %>
-  <a href="https://www.flickr.com/photos/<%= p.attribution %>/">
+  <a href="https://www.flickr.com/photos/<%= p.attribution %>/" target="_blank">
     <%= p.attribution %>
   </a>
 
