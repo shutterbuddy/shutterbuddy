@@ -5,18 +5,20 @@
   <p><div class="copyLink">Here are the photos you wanted to share! Copy this link to share with friends and family: <%= link_to "https://shutterbuddy.herokuapp.com/share/#{@search.id}", share_path, target: "_blank" %>
 
     <p>Happy travels!</p>
-
-    <% @search.photos.each do |ph| %>
-    <%= image_tag ph.url %>
-    <a href="https://www.flickr.com/photos/<%= ph.attribution %>/" target="_blank">
-      <%= ph.attribution %>
-    </a>
-
-
-    <% end %><br>
+    <div class="photo-display">
+      <div class="photo-share">
+        <% @search.photos.each do |ph| %>
+          <%= image_tag ph.url %>
+          <a href="https://www.flickr.com/photos/<%= ph.attribution %>/" target="_blank">
+          <div class="username"><%= ph.attribution %></div>
+          </a>
+        <% end %>
+      </div>
+    </div>
     <br>
-    <a href="/searches/new"> Start over with a new city</a>
+    <br>
 
+    <a href="/searches/new">Start over with a new city</a>
   </p>
 </div>
 </div>
