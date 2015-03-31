@@ -12,8 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require weather-icons
- *= require hint.min
  */
 
 
@@ -69,14 +67,20 @@ h3 {
   width: 100%;
   border-bottom: 1px solid darkgrey;
   padding-left: 20px;
-  h1 a:link, a:visited, #cracker1-button a:hover, #cracker1-button a:active,  {
-    text-decoration:none;
+  h1 a {
     color: white;
     font-family: 'Amaranth';
     font-size: 50px;
     font-weight: 300;
-    text-decoration:none; 
   }
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: blue;
 }
 
 .header-link {
@@ -130,6 +134,10 @@ h3 {
     border-radius: .2em;
   }
 
+  input[type=checkbox] {
+    margin-top: 0px;
+  }
+
 }
 
 .button {
@@ -139,19 +147,19 @@ h3 {
   width: 70px;
   height: 50px;
   font-size: 10px;
-  }
+}
 
 img {
-  padding: 3px;
+  padding: 5px;
   border: 1px solid grey;
-
+  margin: 10px;
 }
 
 .landmark-options {
   .option-label {
     display: inline-block;
     width: 110px;
-    color: black;
+    color: #AAA;
   }
 
   .option-choice {
@@ -166,9 +174,8 @@ img {
 
   .weather-options, .time-of-day-options {
     display: none;
-    margin-left: 2em;
+    margin-left: 45px;
     font-size: 18px;
-    color: grey;
     margin-top: 3px;
   }
   input:checked ~ .weather-options {
@@ -199,6 +206,7 @@ img {
 
     img.checked {
       background-color: #4D90FE;
+      box-shadow: 0 0 10px #4D90FE;
     }
 
     input[type=checkbox] {
