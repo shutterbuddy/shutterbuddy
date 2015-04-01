@@ -24,11 +24,13 @@ function toggleChecked(element) {
   <div class="photo-options">
     <%= f.fields_for :photos do |ff| %>
       <div class="photo-box">
-        <%= image_tag ff.object.url, onClick: "toggleChecked(this)" %>
-        <%= ff.check_box :url, {checked: false}, ff.object.url %>
         <p>
+          <%= image_tag ff.object.url, onClick: "toggleChecked(this)" %>
+          <%= ff.check_box :url, {checked: false}, ff.object.url %>
+        </p>
+        <p class="attribution">
           <a href="https://www.flickr.com/photos/<%= ff.object.path_alias %>/" target="_blank">
-            <div class="attribution"><%= ff.object.attribution %></div>
+            <%= ff.object.attribution %>
           </a>
         </p>
       </div>
