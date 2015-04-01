@@ -286,16 +286,15 @@ img {
     margin-left: 10px;
     text-align: left;
   }
+}
+.clear {
+  clear: left;
+  input[type=submit] {
 
-  .clear {
-    clear: left;
-
-    input[type=submit] {
-      padding: 1em;
-      background-color: #4D90FE;
-      color: white;
-      border: none;
-      border-radius: .2em;
-    }
+    background-color: #4D90FE;
+    color: white;
+    border: none;
+    border-radius: .2em;
   }
+
 }
