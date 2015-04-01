@@ -1,26 +1,26 @@
 
 <div class="verbage">
-<br>
-<br>
-<br>
-  <p><div class="copyLink">Here are the photos you wanted to share! Copy this link to share with friends and family: <%= link_to "https://shutterbuddy.herokuapp.com/share/#{@search.id}", share_path, target: "_blank" %>
+  <br>
+  <br>
+  <br>
+  <h3 class="copyLink">Here are the photos you wanted to share! Copy this link to share with friends and family:</h3>
 
-    <p>Happy travels!</p>
-    <div class="newsearchlink"><a href="/searches/new">Start over with a new city</a></div>
-    <div class="photo-display">
-      <div class="photo-share">
-        <% @search.photos.each do |ph| %>
-          <%= image_tag ph.url %>
-          <a href="https://www.flickr.com/photos/<%= ph.path_alias %>/" target="_blank">
+  <h3><%= link_to "https://shutterbuddy.herokuapp.com/share/#{@search.id}", share_path, target: "_blank" %></h3>
+
+  <h3>Happy travels!</h3>
+
+  <h3 class="newsearchlink"><a href="/searches/new">Start over with a new city</a></h3>
+
+  <div class="photo-display">
+    <div class="photo-share">
+      <% @search.photos.each do |ph| %>
+        <%= image_tag ph.url %>
+        <a href="https://www.flickr.com/photos/<%= ph.path_alias %>/" target="_blank">
           <div class="username"><%= ph.attribution %></div>
-          </a>
-        <% end %>
-      </div>
+        </a>
+      <% end %>
     </div>
-    <br>
-    <br>
-
-
-  </p>
-</div>
+  </div>
+  <br>
+  <br>
 </div>
