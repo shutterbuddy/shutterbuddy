@@ -4,15 +4,15 @@
 <br>
 <br>
 <br>
-<br>
-<br>
 <div class="photo-display">
-  <div class="photo-share">
-    <% @search.photos.each do |p| %>
+  <% @search.photos.each do |p| %>
+    <div class="photo-share">
       <%= image_tag p.url %>
-      <a href="https://www.flickr.com/photos/<%= p.path_alias %>/" target="_blank">
-        <div class="username"><%= p.attribution %></div>
-      </a>
-    <% end%>
-  </div>
+      <div class="username">
+        <a href="https://www.flickr.com/photos/<%= p.path_alias %>/" target="_blank">
+          <%= p.attribution %>
+        </a>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -15,13 +15,14 @@ function toggleChecked(element) {
 <br>
 <br>
 <br>
-<h3>Click on the photos you want to include in your album!</h3>
+
 
 
 <%= form_for @search, url: create_photos_search_path do |f| %>
 
 
   <div class="photo-options">
+    <h3>Click on the photos you want to include in your album!</h3>
     <%= f.fields_for :photos do |ff| %>
       <div class="photo-box">
         <p>
