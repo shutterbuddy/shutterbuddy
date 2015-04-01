@@ -11,7 +11,7 @@
       <div class="photo-share">
         <% @search.photos.each do |ph| %>
           <%= image_tag ph.url %>
-          <a href="https://www.flickr.com/photos/<%= ph.attribution %>/" target="_blank">
+          <a href="https://www.flickr.com/photos/<%= ph.path_alias %>/" target="_blank">
           <div class="username"><%= ph.attribution %></div>
           </a>
         <% end %>

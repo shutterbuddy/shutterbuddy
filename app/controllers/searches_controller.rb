@@ -38,7 +38,8 @@ class SearchesController < ApplicationController
       redirect_to new_landmarks_search_path(@search)
     else
       images.each do |flickr|
-        @search.photos.build(url: flickr.url, attribution: flickr.attribution)
+        attribution, path_alias = flickr.attribution_and_path_alias
+        @search.photos.build(url: flickr.url, attribution: attribution, path_alias: path_alias)
       end
     end
   end
@@ -73,7 +74,7 @@ class SearchesController < ApplicationController
   def search_params
     params.require(:search).permit(:name,
                                   landmarks_attributes: [:name, :link, :search_id, :tod, :weather],
-                                  photos_attributes: [:url, :attribution, :search_id]
+                                  photos_attributes: [:url, :attribution, :search_id, :path_alias]
                                   )
   end
 
