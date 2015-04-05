@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       get "new_landmarks"
       get "new_photos"
       patch "create_landmarks"
-      # post "create_photos"
       patch "create_photos"
       get "share"
     end
