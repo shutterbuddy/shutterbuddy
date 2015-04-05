@@ -12,7 +12,7 @@ class SearchesControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get :new, city: "Paris, France"
     assert_response :success
   end
 
