@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  before_action :set_search, only:[:show, :destroy, :update, :share]
+  before_action :set_search, only:[:show, :share]
 
   def index
   end
@@ -50,12 +50,6 @@ class SearchesController < ApplicationController
 
     redirect_to search_path(@search)
 
-    # params[:photos].each do |p|
-    #   Photo.create!(p[:photo_id])
-    # array = params[:photos]
-    # array.each do |url|
-    #   Photo.create!(search_id: params[:id], url: url)
-    # end
 
   end
 
