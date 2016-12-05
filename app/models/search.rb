@@ -9,7 +9,7 @@ class Search < ActiveRecord::Base
 
   def map_query
     if name.present?
-      "tourism+in+#{name.split.join('+')}"
+      "tourist+attractions+#{name.split.join('+')}"
     else
       "Rome+Italy"
     end
@@ -18,7 +18,7 @@ class Search < ActiveRecord::Base
   def get_landmark_names
     landmark_names = []
     if name.present?
-      url ="https://maps.googleapis.com/maps/api/place/textsearch/json?query=tourism+in+#{name.split.join('+')}&key=#{ENV['GOOGLE_KEY']}"
+      url ="https://maps.googleapis.com/maps/api/place/textsearch/json?query=tourist+attractions+#{name.split.join('+')}&key=#{ENV['GOOGLE_KEY']}"
 
       response = HTTParty.get(url, headers: {"Referer" => "http://localhost:3000/"})
 
